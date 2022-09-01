@@ -1,0 +1,4 @@
+Programar un juego de generala.
+Disenarlo con un componente juego y un componente dado
+El componente dado debe recibir en un atributo un numero entre 1 y 6. Tambien debe mostrar una imagen de la cara de un dado correspondiente a ese dado.
+El componente juego debe almacenar un arreglo de 5 numeros generados al azar y mostrarlos con componentes hijos dados. El juego debe verificar si efectivamente se obtuvo una generala, es decir, los cinco numeros iguales y en tal caso presentar alguna mensaje al respecto

@@ -1,0 +1,21 @@
+<p>Esta es la parte del dado (hijo)</p>
+
+<hr>
+<p>{{ numero }}</p>
+
+<button (click)="generar()" >Generar</button>
+<br><br>
+<hr>
+<img [src]= "imagenNumeroIndividual" alt="">
+
+<br><br>
+
+<p> posicion en el array: {{ posicionArray }}</p>
+
+<hr>
+
+<div class="wrapper"> 
+    <div *ngFor="let item of arrayNumero, let i =index"> 
+        <img  [src]= "arrayImagen" alt=""> 
+    </div> 
+  </div>
