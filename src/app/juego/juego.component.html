@@ -1,5 +1,16 @@
 <p>Esta es la parte del juego</p>
 
+<!-- estoy agarrando el evento emitido por el hijo, le pongo el nombre  que quiero a la funcion... pero dentro de los parentisis tengo que  poner el mismo nombre de lo que se esta emitiendo y quiero agarrar-->
+<app-dado
+    (emitirNuevoDado)="agregarAlArrayNumeros( $event)" 
+></app-dado>
 
-<app-dado></app-dado>
+<p> posicion en el array: {{ posicionArray }}</p>
 
+<hr>
+
+<div class="wrapper"> 
+    <div *ngFor="let item of arrayNumero, let i =index"> 
+        <img  [src]= "arrayImagen" alt=""> 
+    </div> 
+  </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-dado',
@@ -7,14 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DadoComponent implements OnInit {
 
-  arrayNumero: number[] = [];
-  arrayImagen: string[] = [];
-  numero: number = 0;
 
+  numero: number = 0;
   imagenNumeroIndividual: string = "";
-  //= "../../../assets/" + this.numero  +".JPG";
-  imagenNumeroArray: string = "";
-  posicionArray: number = 0;
+
 
   constructor() {
 
@@ -23,29 +20,15 @@ export class DadoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  @Output() emitirNuevoDado:  EventEmitter <number> = new EventEmitter();
+
   generar() {
-    this.numero = Math.floor(Math.random() * 6) + 1;
+    this.numero = Math.floor(Math.random() * 5) + 1;
     this.imagenNumeroIndividual = "../../../assets/" + this.numero + ".JPG";
 
-    if (this.posicionArray <= 5) {
-      this.arrayNumero[this.posicionArray] = this.numero;
-      this.arrayImagen[this.posicionArray] = "../../../assets/" + this.numero + ".JPG"
-      this.posicionArray++;
-    } else {
-      if ((this.arrayNumero[0] === this.arrayNumero[1]) && (this.arrayNumero[2] == this.arrayNumero[3]) && (this.arrayNumero[4] && this.arrayNumero[5]) && (this.arrayNumero[6]) == this.arrayNumero[1]) {
-        alert("GANO")
-        this.arrayNumero = [];
-        this.arrayImagen = [];
-        this.posicionArray = 0; 
-      }
-      else {
-        alert("juego terminado");
-        this.arrayNumero = [];
-        this.arrayImagen = [];
-        this.posicionArray = 0;
-        
-      }
-    }
+    this.emitirNuevoDado.emit( this.numero);
+    
+    
 
   }
 
